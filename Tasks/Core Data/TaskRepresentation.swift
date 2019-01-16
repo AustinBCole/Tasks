@@ -10,9 +10,10 @@ import Foundation
 
 struct TaskRepresentation: Codable, Equatable {
     
-    let name: String
-    let notes: String?
-    let priority: TaskPriority
-    let identifier: UUID
+    var name: String
+    var notes: String?
+    var priority: TaskPriority
+    var identifier: UUID
+    var timestamp: Date?
     
 }

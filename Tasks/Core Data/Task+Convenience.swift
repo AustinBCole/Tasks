@@ -11,12 +11,13 @@ import CoreData
 
 extension Task {
     
-    convenience init(name: String, notes: String? = nil, priority: TaskPriority = .normal, identifier: UUID? = nil, managedObjectContext: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    convenience init(name: String, notes: String? = nil, priority: TaskPriority = .normal, timestamp: Date = Date(), identifier: UUID? = nil, managedObjectContext: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: managedObjectContext)
         self.name = name
         self.notes = notes
         self.taskPriority = priority
         self.identifier = identifier
+        self.timestamp = timestamp
     }
     
     convenience init(taskRepresentation: TaskRepresentation, moc: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
@@ -35,7 +36,7 @@ extension Task {
         let taskIdentifier = identifier ?? UUID()
         identifier = taskIdentifier
         
-        return TaskRepresentation(name: name, notes: notes, priority: taskPriority, identifier: taskIdentifier)
+        return TaskRepresentation(name: name, notes: notes, priority: taskPriority, identifier: taskIdentifier, timestamp: Date())
     }
     
 }

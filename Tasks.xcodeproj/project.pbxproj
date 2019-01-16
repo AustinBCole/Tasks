@@ -401,7 +401,7 @@
 				55F6545D21EE4C8E00E86C11 /* Tasks 2.xcdatamodel */,
 				55F6545521ED02CC00E86C11 /* Tasks.xcdatamodel */,
 			);
-			currentVersion = A266A9BA21EFA03B008092AF /* Tasks 3.xcdatamodel */;
+			currentVersion = A266A9C021EFCA90008092AF /* Tasks 4.xcdatamodel */;
 			path = Tasks.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

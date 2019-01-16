@@ -60,9 +60,16 @@ class TasksController {
             
             // use the identifier from the taskRepresentation
             if let existingTask = task(withIdentifier: taskRepresentation.identifier) {
-                existingTask.name = taskRepresentation.name
-                existingTask.notes = taskRepresentation.notes
-                existingTask.taskPriority = taskRepresentation.priority
+                if taskRepresentation.timestamp != nil, existingTask.timestamp! > taskRepresentation.timestamp! {
+                    existingTask.name = taskRepresentation.name
+                    existingTask.notes = taskRepresentation.notes
+                    existingTask.taskPriority = taskRepresentation.priority
+                } else {
+                var taskRepresentation = taskRepresentation
+                taskRepresentation.name = existingTask.name!
+                taskRepresentation.notes = existingTask.notes
+                taskRepresentation.priority = existingTask.taskPriority
+                }
             } else {
                 _ = Task(taskRepresentation: taskRepresentation, moc: moc)
             }
